@@ -166,7 +166,7 @@ EZRMutableNode<NSString *> *nodeB = [EZRMutableNode new];
 id<EZRCancelable> cancelable = [nodeA syncWith:nodeB transform:^NSNumber * _Nonnull(NSString * _Nonnull target) {
     return @(target.integerValue);
 } revert:^NSString * _Nonnull(NSNumber * _Nonnull source) {
-    return [NSString stringWithFormat:@"%@", source];
+    return source.stringValue;
 }];
 NSObject *obj = [NSObject new];
 [[obj listen:nodeA] withBlock:^(id  _Nullable next) {
